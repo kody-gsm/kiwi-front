@@ -133,7 +133,7 @@ function Login() {
 
         </form>
       </Logindiv>
-      <Backimg src={"/입.png"} />
+      <Backimg src={"/progress.png"} />
       <Backimg2 src={"/check.png"} />
     </div>
   );
