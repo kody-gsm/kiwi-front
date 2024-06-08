@@ -118,7 +118,7 @@ function Login() {
             </IconWrapper>
 
             <StyledInput minLength={6} maxLength={6} required />
-          </InputContainer>
+          </InputContainer>git
 
           <InputContainer>
             <IconWrapper>
