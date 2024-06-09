@@ -36,7 +36,7 @@ const Logo = styled.img`
 `;
 
 const Backimg = styled.img`
-  width: 670px;
+  width: 690px;
   height: 620px;
   display: block;
   margin-right: auto;
@@ -112,7 +112,7 @@ function Login() {
       <Logingreen />
       <Logindiv>
         <Logo src={"/kiwi.png"} alt="logo" />
-        <form>
+        <form method="post">
           <InputContainer>
             <IconWrapper>
               <IoPersonOutline color="#C3C3C3" size={20} />
