@@ -3,6 +3,7 @@ import { IoPersonOutline } from "react-icons/io5";
 import { MdLockOutline } from "react-icons/md";
 import * as S from "./style/signstyle";
 import "./style/divstyle.css";
+import Back from "./Back";
 
 function Login() {
   const [isFocused, setIsFocused] = useState(false);
@@ -63,8 +64,7 @@ function Login() {
 
         </form>
       </S.Logindiv>
-      <S.Backimg src={"/progress.png"} />
-      <S.Backimg2 src={"/check.png"} />
+      <Back />
     </div>
   );
 }
