@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdLockOutline } from "react-icons/md";
-import * as S from "./style/loginstyle";
+import * as S from "./style/signstyle";
 import "./style/divstyle.css";
 
 function Login() {
@@ -55,12 +55,10 @@ function Login() {
             required
             />
           </S.InputContainer>
-
-          <S.Pwfind>비밀번호 찾기</S.Pwfind>
-          <S.LoginButton>로그인</S.LoginButton>
+          <S.LoginButton>회원가입</S.LoginButton>
           <div>
-            <S.kiwisign>Kiwi를 처음 사용하시는 유저들은?</S.kiwisign>
-            <S.signgo>회원가입</S.signgo>
+            <S.kiwilogin>Kiwi를 이미 사용하시는 유저들은?</S.kiwilogin>
+            <S.logingo>로그인</S.logingo>
           </div>
 
         </form>
