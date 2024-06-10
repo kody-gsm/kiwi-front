@@ -47,7 +47,13 @@ function Login() {
               <MdLockOutline color="#C3C3C3" size={20} />
             </S.IconWrapper>
 
-            <S.StyledInput type="password" minLength={4} maxLength={31} placeholder="비밀번호" required />
+            <S.StyledInput
+            type="password"
+            minLength={4}
+            maxLength={31}
+            placeholder="비밀번호"
+            required
+            />
           </S.InputContainer>
 
           <S.Pwfind>비밀번호 찾기</S.Pwfind>
