@@ -1,26 +1,26 @@
 import styled from "styled-components";
 
 export const Logindiv = styled.div`
-    width: 39vw;
-    height: 63vh;
-    background-color: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    border-radius: 20px;
+  width: 39vw;
+  height: 63vh;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 20px;
 `;
 
 export const Logingreen = styled.div`
-    width: 39vw;
-    height: 63vh;
-    background-color: #43A953;
-    top: 50%;
-    left: 50%;
-    transform: translate(-44.5%, -50%);
-    position: absolute;
-    border-radius: 20px;
-    opacity: 35%;
+  width: 39vw;
+  height: 63vh;
+  background-color: #43A953;
+  top: 50%;
+  left: 50%;
+  transform: translate(-44.5%, -50%);
+  position: absolute;
+  border-radius: 20px;
+  opacity: 35%;
 `;
 
 export const Logo = styled.img`
@@ -37,7 +37,7 @@ export const Backimg = styled.img`
   height: 620px;
   display: block;
   margin-right: auto;
-`
+`;
 
 export const Backimg2 = styled.img`
   width: 840px;
@@ -45,7 +45,7 @@ export const Backimg2 = styled.img`
   display: block;
   margin-left: 49vw;
   margin-top: -32vh;
-`
+`;
 
 export const InputContainer = styled.div`
   width: 80%;
@@ -88,13 +88,12 @@ export const Pwfind = styled.p`
   cursor: pointer;
 `;
 
-
-export const Domain = styled.p`
+export const Domain = styled.p<{ isFocused: boolean; inputValue: string }>`
   color: #C3C3C3;
   font-weight: bold;
   flex: 1;
-  margin-left: -28vw;
-  //margin-left: -20.5vw;
+  margin-left: ${(props) => (props.isFocused || props.inputValue ? "-20.5vw" : "-28vw")};
+  transition: margin-left 0.3s ease;
 `
 
 export const LoginButton = styled.button`
@@ -106,7 +105,25 @@ export const LoginButton = styled.button`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 8vh;
+  margin-top: 7vh;
   border-radius: 10px;
   font-weight: bold;
+`;
+
+export const kiwisign = styled.p`
+  color: #585858;
+  display: block;
+  margin-left: 9vw;
+  margin-top: 1vh;
+  font-weight: 500;
+  cursor: pointer;
+`;
+
+export const signgo = styled.p`
+  color: black;
+  display: block;
+  margin-left: 25vw;
+  margin-top: -2.5vh;
+  font-weight: 500;
+  cursor: pointer;
 `;
