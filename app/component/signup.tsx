@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdLockOutline } from "react-icons/md";
-import * as S from "./style/signstyle";
-import "./style/divstyle.css";
+import * as S from "../stylesheets/signstyle";
+import "../stylesheets/divstyle.css";
 import Back from "./Back";
 
-function Login() {
+function Signup() {
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
@@ -69,4 +69,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;

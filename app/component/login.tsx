@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdLockOutline } from "react-icons/md";
-import * as S from "./style/loginstyle";
-import "./style/divstyle.css";
+import * as S from "../stylesheets/loginstyle";
+import "../stylesheets/divstyle.css";
 import Back from "./Back";
 
 function Login() {

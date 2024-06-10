@@ -1,13 +1,10 @@
 'use client'
 
-import styled from "styled-components";
-import Login from "./component/login";
-import Signup from "./component/signup";
+import React from 'react';
+import Login from './component/login';
 
-function Home() {
-  return (
-   <Signup />
-  );
-}
+const HomePage: React.FC = () => {
+  return <Login />;
+};
 
-export default Home;
+export default HomePage;
