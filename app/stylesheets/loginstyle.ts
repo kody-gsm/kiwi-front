@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { IoPersonOutline } from "react-icons/io5";
+import { MdLockOutline } from "react-icons/md";
 
 export const Logindiv = styled.div`
   width: 39vw;
@@ -48,7 +50,7 @@ export const Backimg2 = styled.img`
   margin-top: -32vh;
 `;
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.div<{isFocused: boolean;}>`
   width: 80%;
   height: 7.9vh;
   background-color: #C3C3C360;
@@ -59,6 +61,7 @@ export const InputContainer = styled.div`
   border-radius: 10px;
   margin-top: 5vh;
   padding-left: 20px;
+  border : ${(props) => (props.isFocused) ? "solid 1px #34AF47;" : "solid 1px #C3C3C3100;"}
 `;
 
 export const IconWrapper = styled.div`
@@ -74,7 +77,6 @@ export const StyledInput = styled.input`
   font-weight: bold;
   padding: 10px;
   flex: 1;
-
   &:focus {
     outline: none;
   }
@@ -90,7 +92,7 @@ export const Pwfind = styled.p`
 `;
 
 export const Domain = styled.p<{ isFocused: boolean; inputValue: string }>`
-  color: #C3C3C3;
+  color: ${(props) => (props.isFocused) ? "#black;" : "#C3C3C3;"}
   font-weight: bold;
   flex: 1;
   margin-left: ${(props) => (props.isFocused || props.inputValue ? "-20.5vw" : "-28vw")};
@@ -127,4 +129,12 @@ export const Linkitem = styled(Link)`
   margin-top: -2.5vh;
   font-weight: 500;
   cursor: pointer;
+`;
+
+export const Lockicon = styled(MdLockOutline)<{isFocused : boolean}>`
+  color: ${(props) => props.isFocused ? "black" : "#C3C3C3"}
+`;
+
+export const Peopleicon = styled(IoPersonOutline)<{isFocused : boolean}>`
+  color: ${(props) => props.isFocused ? "black" : "#C3C3C3"}
 `;

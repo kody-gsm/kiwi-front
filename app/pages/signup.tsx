@@ -6,18 +6,27 @@ import "../stylesheets/divstyle.css";
 import Back from "../component/Back";
 
 function Signup() {
-  const [isFocused, setIsFocused] = useState(false);
+  const [emailFocused, setEmailFocused] = useState(false);
+  const [psFocused, setPsFocused] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
-  const handleFocus = () => {
-    setIsFocused(true);
+  const handleEmailFocus = () => {
+    setEmailFocused(true);
   };
 
-  const handleBlur = () => {
-    setIsFocused(false);
+  const handleEmailBlur = () => {
+    setEmailFocused(false);
   };
 
-  const handleChange = (e : any) => {
+  const handlePasswordFocus = () => {
+    setPsFocused(true);
+  };
+
+  const handlePasswordBlur = () => {
+    setPsFocused(false);
+  };
+
+  const handleChange = (e: any) => {
     setInputValue(e.target.value);
   };
   
@@ -27,25 +36,25 @@ function Signup() {
       <S.Logindiv>
         <S.Logo src={"/kiwi.png"} alt="logo" />
         <form method="post">
-          <S.InputContainer>
+          <S.InputContainer isFocused={emailFocused}>
             <S.IconWrapper>
-              <IoPersonOutline color="#C3C3C3" size={20} />
+              <S.Peopleicon isFocused={emailFocused} size={20} />
             </S.IconWrapper>
 
             <S.StyledInput
             minLength={6}
             maxLength={6}
             required
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            onFocus={handleEmailFocus}
+            onBlur={handleEmailBlur}
             onChange={handleChange} 
             />
-            <S.Domain isFocused={isFocused} inputValue={inputValue}>@gsm.hs.kr</S.Domain>
+            <S.Domain isFocused={emailFocused} inputValue={inputValue}>@gsm.hs.kr</S.Domain>
           </S.InputContainer>
 
-          <S.InputContainer>
+          <S.InputContainer isFocused={psFocused}>
             <S.IconWrapper>
-              <MdLockOutline color="#C3C3C3" size={20} />
+              <S.Lockicon isFocused={psFocused} size={20} />
             </S.IconWrapper>
 
             <S.StyledInput
@@ -54,6 +63,8 @@ function Signup() {
             maxLength={31}
             placeholder="비밀번호"
             required
+            onFocus={handlePasswordFocus}
+            onBlur={handlePasswordBlur}
             />
           </S.InputContainer>
           <S.LoginButton>회원가입</S.LoginButton>
