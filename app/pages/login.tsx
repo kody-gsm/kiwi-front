@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdLockOutline } from "react-icons/md";
-import * as S from "../stylesheets/signstyle";
+import * as S from "../stylesheets/loginstyle";
 import "../stylesheets/divstyle.css";
-import Back from "./Back";
+import Back from "../component/Back";
+import Link from "next/link";
 
-function Signup() {
+function Login() {
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
@@ -56,10 +57,12 @@ function Signup() {
             required
             />
           </S.InputContainer>
-          <S.LoginButton>회원가입</S.LoginButton>
+
+          <S.Pwfind>비밀번호 찾기</S.Pwfind>
+          <S.LoginButton>로그인</S.LoginButton>
           <div>
-            <S.kiwilogin>Kiwi를 이미 사용하시는 유저들은?</S.kiwilogin>
-            <S.Linkitem href={"/"}>로그인</S.Linkitem>
+            <S.kiwisign>Kiwi를 처음 사용하시는 유저들은?</S.kiwisign>
+            <S.Linkitem href={"/signup"}>회원가입</S.Linkitem>
           </div>
 
         </form>
@@ -69,4 +72,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Login;
