@@ -4,6 +4,7 @@ import { MdLockOutline } from "react-icons/md";
 import * as S from "../stylesheets/loginstyle";
 import "../stylesheets/divstyle.css";
 import Back from "./Back";
+import Link from "next/link";
 
 function Login() {
   const [isFocused, setIsFocused] = useState(false);
@@ -61,7 +62,7 @@ function Login() {
           <S.LoginButton>로그인</S.LoginButton>
           <div>
             <S.kiwisign>Kiwi를 처음 사용하시는 유저들은?</S.kiwisign>
-            <S.signgo>회원가입</S.signgo>
+            <S.Linkitem href={"/signup"}>회원가입</S.Linkitem>
           </div>
 
         </form>

@@ -59,7 +59,7 @@ function Signup() {
           <S.LoginButton>회원가입</S.LoginButton>
           <div>
             <S.kiwilogin>Kiwi를 이미 사용하시는 유저들은?</S.kiwilogin>
-            <S.logingo>로그인</S.logingo>
+            <S.Linkitem href={"/"}>로그인</S.Linkitem>
           </div>
 
         </form>

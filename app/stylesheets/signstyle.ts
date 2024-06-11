@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 export const Logindiv = styled.div`
   width: 39vw;
@@ -119,7 +120,7 @@ export const kiwilogin = styled.p`
   cursor: pointer;
 `;
 
-export const logingo = styled.p`
+export const Linkitem = styled(Link)`
   color: black;
   display: block;
   margin-left: 25vw;
