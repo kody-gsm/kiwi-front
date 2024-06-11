@@ -50,7 +50,20 @@ export const Backimg2 = styled.img`
   margin-top: -32vh;
 `;
 
-export const InputContainer = styled.div<{isFocused: boolean;}>`
+export const EmailContainer = styled.div<{isFocused: boolean;}>`
+  width: 52%;
+  height: 7.9vh;
+  background-color: #C3C3C360;
+  display: flex;
+  align-items: center;
+  margin-left: 4vw;
+  border-radius: 10px;
+  margin-top: 5vh;
+  padding-left: 20px;
+  border : ${(props) => (props.isFocused) ? "solid 1px #34AF47;" : "solid 1px #C3C3C3100;"}
+`;
+
+export const PsContainer = styled.div<{isFocused: boolean;}>`
   width: 80%;
   height: 7.9vh;
   background-color: #C3C3C360;
@@ -63,6 +76,7 @@ export const InputContainer = styled.div<{isFocused: boolean;}>`
   padding-left: 20px;
   border : ${(props) => (props.isFocused) ? "solid 1px #34AF47;" : "solid 1px #C3C3C3100;"}
 `;
+
 
 export const IconWrapper = styled.div`
   display: flex;
@@ -86,15 +100,7 @@ export const StyledInput = styled.input<{isFocused: boolean;}>`
 	}
 `
 
-export const Lockicon = styled(MdLockOutline)<{isFocused : boolean}>`
-  color: ${(props) => props.isFocused ? "black" : "#C3C3C3"}
-`;
-
-export const Peopleicon = styled(IoPersonOutline)<{isFocused : boolean}>`
-  color: ${(props) => props.isFocused ? "black" : "#C3C3C3"}
-`;
-
-export const Pwfind = styled.p`
+export const Pwfind = styled(Link)`
   color: #585858;
   display: block;
   margin-left: 29vw;
@@ -107,25 +113,11 @@ export const Domain = styled.p<{ isFocused: boolean; inputValue: string }>`
   color: ${(props) => (props.isFocused) ? "#black;" : "#C3C3C3;"}
   font-weight: bold;
   flex: 1;
-  margin-left: ${(props) => (props.isFocused || props.inputValue ? "-20.5vw" : "-28vw")};
+  margin-left: ${(props) => (props.isFocused || props.inputValue ? "-10.3vw" : "-16vw")};
   transition: margin-left 0.3s ease;
 `
 
-export const LoginButton = styled.button`
-  background-color: #43A953;
-  color: white;
-  width: 80%;
-  height: 8vh;
-  text-align: center;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 7vh;
-  border-radius: 10px;
-  font-weight: bold;
-`;
-
-export const kiwilogin = styled.p`
+export const kiwisign = styled.p`
   color: #585858;
   display: block;
   margin-left: 9vw;
@@ -141,4 +133,43 @@ export const Linkitem = styled(Link)`
   margin-top: -2.5vh;
   font-weight: 500;
   cursor: pointer;
+`;
+
+export const Authbutton = styled.button<{inputValue: string;}>`
+  width: 25%;
+  height: 7.9vh;
+  justify-content: center;
+  background-color: #C3C3C360;
+  display: flex;
+  align-items: center;
+  margin-left: 25.3vw;
+  border-radius: 10px;
+  margin-top: -8vh;
+  font-weight: bold;
+  color: white;
+  background-color: #43A953;
+  opacity: ${(props) => (props.inputValue) ? "100%;" : "30%;"}
+`
+
+export const LoginButton = styled.button<{isFormValid: boolean;}>`
+  background-color: #43A953;
+  color: white;
+  width: 80%;
+  height: 8vh;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 7vh;
+  border-radius: 10px;
+  font-weight: bold;
+  opacity: ${(props) => (props.isFormValid) ? "100%;" : "30%;"}
+`;
+
+export const Lockicon = styled(MdLockOutline)<{isFocused : boolean}>`
+  color: ${(props) => props.isFocused ? "black" : "#C3C3C3"}
+`;
+
+export const Peopleicon = styled(IoPersonOutline)<{isFocused : boolean}>`
+  color: ${(props) => props.isFocused ? "black" : "#C3C3C3"}
 `;

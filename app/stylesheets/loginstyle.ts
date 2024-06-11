@@ -70,10 +70,10 @@ export const IconWrapper = styled.div`
   margin-right: 10px;
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled.input<{isFocused: boolean;}>`
   background-color: transparent;
   border: none;
-  color: #C3C3C3;
+  color: ${(props) => (props.isFocused) ? "black;" : "#C3C3C3;"}
   font-weight: bold;
   padding: 10px;
   flex: 1;
@@ -87,7 +87,7 @@ export const StyledInput = styled.input`
 `
 
 
-export const Pwfind = styled.p`
+export const Pwfind = styled(Link)`
   color: #585858;
   display: block;
   margin-left: 29vw;

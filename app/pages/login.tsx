@@ -38,7 +38,7 @@ function Login() {
             <S.IconWrapper>
               <S.Peopleicon size={20} isFocused={emailFocused} />
             </S.IconWrapper>
-            <S.StyledInput
+            <S.StyledInput isFocused={emailFocused}
               minLength={6}
               maxLength={6}
               required
@@ -53,7 +53,7 @@ function Login() {
             <S.IconWrapper>
               <S.Lockicon size={20} isFocused={psFocused} />
             </S.IconWrapper>
-            <S.StyledInput
+            <S.StyledInput isFocused={psFocused}
               type="password"
               minLength={4}
               maxLength={31}
@@ -64,7 +64,7 @@ function Login() {
             />
           </S.InputContainer>
 
-          <S.Pwfind>비밀번호 찾기</S.Pwfind>
+          <S.Pwfind href={"/passwordfind"}>비밀번호 찾기</S.Pwfind>
           <S.LoginButton>로그인</S.LoginButton>
           <div>
             <S.kiwisign>Kiwi를 처음 사용하시는 유저들은?</S.kiwisign>

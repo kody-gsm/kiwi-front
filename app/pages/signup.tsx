@@ -41,7 +41,7 @@ function Signup() {
               <S.Peopleicon isFocused={emailFocused} size={20} />
             </S.IconWrapper>
 
-            <S.StyledInput
+            <S.StyledInput isFocused={emailFocused}
             minLength={6}
             maxLength={6}
             required
@@ -57,7 +57,7 @@ function Signup() {
               <S.Lockicon isFocused={psFocused} size={20} />
             </S.IconWrapper>
 
-            <S.StyledInput
+            <S.StyledInput isFocused={psFocused}
             type="password"
             minLength={4}
             maxLength={31}
