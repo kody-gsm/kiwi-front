@@ -80,7 +80,12 @@ export const StyledInput = styled.input`
   &:focus {
     outline: none;
   }
-`;
+
+  &::placeholder{
+		color: #C3C3C395;
+	}
+`
+
 
 export const Pwfind = styled.p`
   color: #585858;
