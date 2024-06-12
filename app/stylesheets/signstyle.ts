@@ -2,10 +2,12 @@ import styled from "styled-components";
 import Link from "next/link";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdLockOutline } from "react-icons/md";
+import { RiEnglishInput } from "react-icons/ri";
+import { MdFormatListNumbered } from "react-icons/md";
 
 export const Logindiv = styled.div`
   width: 39vw;
-  height: 63vh;
+  height: 73vh;
   background-color: white;
   top: 50%;
   left: 50%;
@@ -16,7 +18,7 @@ export const Logindiv = styled.div`
 
 export const Logingreen = styled.div`
   width: 39vw;
-  height: 63vh;
+  height: 73vh;
   background-color: #43A953;
   top: 50%;
   left: 50%;
@@ -57,9 +59,35 @@ export const InputContainer = styled.div<{isFocused: boolean;}>`
   display: flex;
   align-items: center;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; 
   border-radius: 10px;
   margin-top: 5vh;
+  padding-left: 20px;
+  border : ${(props) => (props.isFocused) ? "solid 1px #34AF47;" : "solid 1px #C3C3C3100;"}
+`;
+
+export const InputContainerId = styled.div<{isFocused: boolean;}>`
+  width: 38%;
+  height: 7.9vh;
+  background-color: #C3C3C360;
+  display: flex;
+  align-items: center;
+  margin-left: 4vw; 
+  border-radius: 10px;
+  margin-top: 5vh;
+  padding-left: 20px;
+  border : ${(props) => (props.isFocused) ? "solid 1px #34AF47;" : "solid 1px #C3C3C3100;"}
+`;
+
+export const InputContainerName = styled.div<{isFocused: boolean;}>`
+  width: 38%;
+  height: 7.9vh;
+  background-color: #C3C3C360;
+  display: flex;
+  align-items: center;
+  margin-left: 20.3vw; 
+  border-radius: 10px;
+  margin-top: -8vh;
   padding-left: 20px;
   border : ${(props) => (props.isFocused) ? "solid 1px #34AF47;" : "solid 1px #C3C3C3100;"}
 `;
@@ -94,6 +122,14 @@ export const Peopleicon = styled(IoPersonOutline)<{isFocused : boolean}>`
   color: ${(props) => props.isFocused ? "black" : "#C3C3C3"}
 `;
 
+export const Nameicon = styled(RiEnglishInput)<{isFocused : boolean}>`
+  color: ${(props) => props.isFocused ? "black" : "#C3C3C3"}
+`;
+
+export const Idicon = styled(MdFormatListNumbered)<{isFocused : boolean}>`
+  color: ${(props) => props.isFocused ? "black" : "#C3C3C3"}
+`;
+
 export const Pwfind = styled.p`
   color: #585858;
   display: block;
@@ -117,13 +153,18 @@ export const LoginButton = styled.button`
   width: 80%;
   height: 8vh;
   text-align: center;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 7vh;
+  margin-top: 5vh;
   border-radius: 10px;
   font-weight: bold;
+  pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
 `;
+
 
 export const kiwilogin = styled.p`
   color: #585858;
