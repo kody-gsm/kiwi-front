@@ -10,6 +10,7 @@ function Login() {
   const [psFocused, setPsFocused] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleEmailFocus = () => {
     setEmailFocused(true);
@@ -35,19 +36,39 @@ function Login() {
     setPasswordValue(e.target.value);
   };
 
-  const handleSubmit = async (e: any) => {
+  const isButtonDisabled =
+    inputValue.length === 0 ||
+    passwordValue.length === 0;
+
+  const handleSubmit = async (e : any) => {
     e.preventDefault();
+    if (isButtonDisabled) return;
+
+    const dto = {
+      email: inputValue,
+      password: passwordValue,
+    };
 
     try {
-      const response = await axios.post("https://b608-210-218-52-13.ngrok-free.app/login", {
-        email: `${inputValue}@gsm.hs.kr`,
-        password: passwordValue,
-      });
-      if (response.status === 200) {
-        Router.push('/dashboard');
+      const response = await axios.post(
+        "https://1a0f-210-218-52-13.ngrok-free.app/login",
+        dto,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.status === 201) {
+        Router.push("/passwordfind");
       }
-    } catch (error) {
-      console.error("Error!", error);
+    } catch (error : any) {
+      if (error.response && error.response.data) {
+        setErrorMessage(error.response.data);
+        alert(error.response.data);
+      } else {
+        console.error("Error:", error);
+      }
     }
   };
 

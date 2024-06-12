@@ -16,6 +16,7 @@ function Signup() {
   const [passwordValue, setPasswordValue] = useState("");
   const [idValue, setIdValue] = useState("");
   const [nameValue, setNameValue] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleEmailFocus = () => {
     setEmailFocused(true);
@@ -49,19 +50,19 @@ function Signup() {
     setNameFocused(false);
   };
 
-  const handleEmailChange = (e: any) => {
+  const handleEmailChange = (e : any) => {
     setInputValue(e.target.value);
   };
 
-  const handlePasswordChange = (e: any) => {
+  const handlePasswordChange = (e : any) => {
     setPasswordValue(e.target.value);
   };
 
-  const handleIdChange = (e: any) => {
+  const handleIdChange = (e : any) => {
     setIdValue(e.target.value);
   };
 
-  const handleNameChange = (e: any) => {
+  const handleNameChange = (e : any) => {
     setNameValue(e.target.value);
   };
 
@@ -71,7 +72,7 @@ function Signup() {
     idValue.length === 0 ||
     nameValue.length === 0;
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e : any) => {
     e.preventDefault();
     if (isButtonDisabled) return;
 
@@ -93,10 +94,15 @@ function Signup() {
         }
       );
       if (response.status === 201) {
-        Router.push("/signpersonal");
+        Router.push("/");
       }
-    } catch (error) {
-      console.error("Error:", error);
+    } catch (error : any) {
+      if (error.response && error.response.data) {
+        setErrorMessage(error.response.data);
+        alert(error.response.data);
+      } else {
+        console.error("Error:", error);
+      }
     }
   };
 
