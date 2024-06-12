@@ -34,19 +34,19 @@ function Signup() {
   };
 
   const handleIdFocus = () => {
-    setIdFocused(true)
+    setIdFocused(true);
   };
 
   const handleIdBlur = () => {
-    setIdFocused(false)
+    setIdFocused(false);
   };
 
   const handleNameFocus = () => {
-    setNameFocused(true)
+    setNameFocused(true);
   };
 
   const handleNameBlur = () => {
-    setNameFocused(false)
+    setNameFocused(false);
   };
 
   const handleEmailChange = (e: any) => {
@@ -57,40 +57,55 @@ function Signup() {
     setPasswordValue(e.target.value);
   };
 
-  const handleIdChange = (e : any) => {
+  const handleIdChange = (e: any) => {
     setIdValue(e.target.value);
-  }
+  };
 
-  const handleNameChange = (e : any) => {
+  const handleNameChange = (e: any) => {
     setNameValue(e.target.value);
-  }
+  };
 
-  const ButtonDisabled = inputValue.length === 0 || passwordValue.length === 0;
+  const isButtonDisabled =
+    inputValue.length === 0 ||
+    passwordValue.length === 0 ||
+    idValue.length === 0 ||
+    nameValue.length === 0;
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    if (ButtonDisabled) return;
+    if (isButtonDisabled) return;
+
+    const dto = {
+      email: inputValue,
+      password: passwordValue,
+      id: idValue,
+      username: nameValue,
+    };
 
     try {
-      const response = await axios.post("https://b608-210-218-52-13.ngrok-free.app/sign-up", {
-        email: `${inputValue}@gsm.hs.kr`,
-        password: passwordValue,
-      });
-      if (response.status === 200) {
-        Router.push('/signpersonal');
+      const response = await axios.post(
+        "https://1a0f-210-218-52-13.ngrok-free.app/sign-up",
+        dto,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.status === 201) {
+        Router.push("/signpersonal");
       }
     } catch (error) {
-      console.error("야팔", error);
+      console.error("Error:", error);
     }
   };
-
 
   return (
     <div>
       <S.Logingreen />
       <S.Logindiv>
         <S.Logo src={"/kiwi.png"} alt="logo" />
-        <form method="post">
+        <form method="post" onSubmit={handleSubmit}>
           <S.InputContainer isFocused={emailFocused}>
             <S.IconWrapper>
               <S.Peopleicon isFocused={emailFocused} size={20} />
@@ -139,7 +154,8 @@ function Signup() {
               onFocus={handleIdFocus}
               onBlur={handleIdBlur}
               required
-            />           
+              placeholder="학번"
+            />
           </S.InputContainerId>
 
           <S.InputContainerName isFocused={nameFocused}>
@@ -153,10 +169,13 @@ function Signup() {
               onFocus={handleNameFocus}
               onBlur={handleNameBlur}
               required
+              placeholder="이름"
             />
           </S.InputContainerName>
-            
-          <S.LoginButton>회원가입</S.LoginButton>
+
+          <S.LoginButton type="submit" disabled={isButtonDisabled}>
+            회원가입
+          </S.LoginButton>
           <div>
             <S.kiwilogin>Kiwi를 이미 사용하시는 유저들은?</S.kiwilogin>
             <S.Linkitem href={"/"}>로그인</S.Linkitem>
