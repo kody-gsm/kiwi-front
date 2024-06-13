@@ -59,13 +59,12 @@ function Passwordfind() {
 
           <S.PsContainer isFocused={psFocused}>
             <S.IconWrapper>
-              <S.Lockicon size={20} isFocused={psFocused} />
+              <S.Nameicon size={20} isFocused={psFocused} />
             </S.IconWrapper>
             <S.StyledInput isFocused={psFocused}
-              type="password"
               minLength={4}
               maxLength={31}
-              placeholder="비밀번호"
+              placeholder="이름"
               required
               onFocus={handlePasswordFocus}
               onBlur={handlePasswordBlur}

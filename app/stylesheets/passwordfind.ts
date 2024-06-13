@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import { IoPersonOutline } from "react-icons/io5";
-import { MdLockOutline } from "react-icons/md";
+import { RiEnglishInput } from "react-icons/ri";
 
 export const Logindiv = styled.div`
   width: 39vw;
@@ -166,7 +166,7 @@ export const LoginButton = styled.button<{isFormValid: boolean;}>`
   opacity: ${(props) => (props.isFormValid) ? "100%;" : "30%;"}
 `;
 
-export const Lockicon = styled(MdLockOutline)<{isFocused : boolean}>`
+export const Nameicon = styled(RiEnglishInput)<{isFocused : boolean}>`
   color: ${(props) => props.isFocused ? "black" : "#C3C3C3"}
 `;
 
