@@ -28,11 +28,11 @@ function Login() {
     setPsFocused(false);
   };
 
-  const handleEmailChange = (e: any) => {
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
-  const handlePasswordChange = (e: any) => {
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPasswordValue(e.target.value);
   };
 
@@ -51,7 +51,7 @@ function Login() {
 
     try {
       const response = await axios.post(
-        "https://1a0f-210-218-52-13.ngrok-free.app/login",
+        "https://8cb7-210-218-52-13.ngrok-free.app/login",
         dto,
         {
           headers: {

@@ -131,7 +131,7 @@ export const Linkitem = styled(Link)`
   color: black;
   display: block;
   margin-left: 25vw;
-  margin-top: -2.5vh;
+  margin-top: -1.45em;
   font-weight: 500;
   cursor: pointer;
 `;

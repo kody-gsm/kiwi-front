@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { IoPersonOutline } from "react-icons/io5";
-import { MdLockOutline } from "react-icons/md";
 import * as S from "../stylesheets/signstyle";
 import "../stylesheets/divstyle.css";
 import Back from "../component/Back";
@@ -17,6 +15,7 @@ function Signup() {
   const [idValue, setIdValue] = useState("");
   const [nameValue, setNameValue] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleEmailFocus = () => {
     setEmailFocused(true);
@@ -50,19 +49,19 @@ function Signup() {
     setNameFocused(false);
   };
 
-  const handleEmailChange = (e : any) => {
+  const handleEmailChange = (e : React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
-  const handlePasswordChange = (e : any) => {
+  const handlePasswordChange = (e : React.ChangeEvent<HTMLInputElement>) => {
     setPasswordValue(e.target.value);
   };
 
-  const handleIdChange = (e : any) => {
+  const handleIdChange = (e : React.ChangeEvent<HTMLInputElement>) => {
     setIdValue(e.target.value);
   };
 
-  const handleNameChange = (e : any) => {
+  const handleNameChange = (e : React.ChangeEvent<HTMLInputElement>) => {
     setNameValue(e.target.value);
   };
 
@@ -85,7 +84,7 @@ function Signup() {
 
     try {
       const response = await axios.post(
-        "https://1a0f-210-218-52-13.ngrok-free.app/sign-up",
+        "https://8cb7-210-218-52-13.ngrok-free.app/sign-up",
         dto,
         {
           headers: {
