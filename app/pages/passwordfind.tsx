@@ -5,9 +5,9 @@ import Back from "../component/Back";
 
 function Passwordfind() {
   const [emailFocused, setEmailFocused] = useState(false);
-  const [psFocused, setPsFocused] = useState(false);
+  const [idFocused, setIdFocused] = useState(false);
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [id, setId] = useState("");
 
   const handleEmailFocus = () => {
     setEmailFocused(true);
@@ -17,23 +17,23 @@ function Passwordfind() {
     setEmailFocused(false);
   };
 
-  const handlePasswordFocus = () => {
-    setPsFocused(true);
+  const handleIdFocus = () => {
+    setIdFocused(true);
   };
 
-  const handlePasswordBlur = () => {
-    setPsFocused(false);
+  const handleIdBlur = () => {
+    setIdFocused(false);
   };
 
   const handleEmailChange = (e: any) => {
     setEmail(e.target.value);
   };
 
-  const handlePasswordChange = (e: any) => {
-    setPassword(e.target.value);
+  const handleIdChange = (e: any) => {
+    setId(e.target.value);
   };
   
-  const isFormValid = email.length > 0 && password.length > 0;
+  const isFormValid = email.length > 0 && id.length > 0;
 
   return (
     <div>
@@ -57,18 +57,18 @@ function Passwordfind() {
           </S.EmailContainer>
             <S.Authbutton inputValue={email}>인증하기</S.Authbutton>
 
-          <S.PsContainer isFocused={psFocused}>
+          <S.PsContainer isFocused={idFocused}>
             <S.IconWrapper>
-              <S.Nameicon size={20} isFocused={psFocused} />
+              <S.Idicon size={20} isFocused={idFocused} />
             </S.IconWrapper>
-            <S.StyledInput isFocused={psFocused}
+            <S.StyledInput isFocused={idFocused}
               minLength={4}
-              maxLength={31}
-              placeholder="이름"
+              maxLength={4}
+              placeholder="학번"
               required
-              onFocus={handlePasswordFocus}
-              onBlur={handlePasswordBlur}
-              onChange={handlePasswordChange}
+              onFocus={handleIdFocus}
+              onBlur={handleIdBlur}
+              onChange={handleIdChange}
             />
           </S.PsContainer>
 
