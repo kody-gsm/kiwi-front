@@ -60,7 +60,7 @@ function Login() {
         }
       );
       if (response.status === 201) {
-        Router.push("/passwordfind");
+        Router.push("/check");
       }
     } catch (error : any) {
       if (error.response && error.response.data) {
