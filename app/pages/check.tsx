@@ -1,16 +1,18 @@
 import * as S from "../stylesheets/check";
+import User from "../component/User";
+import Filter from "../component/Filter";
 
 function Check() {
-    return(
-        <S.form>
-            <S.studentlist>
-                <S.student />
-                <S.student />
-                <S.student />
-                <S.student />
-            </S.studentlist>
-            <S.tab />
-        </S.form>
+    return (
+        <S.main>
+            <Filter />
+            <S.container>
+                <User />
+                <User />
+                <User />
+                <User />
+            </S.container>
+        </S.main>
     );
 }
 
