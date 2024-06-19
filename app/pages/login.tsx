@@ -83,6 +83,7 @@ function Login() {
               <S.Peopleicon size={20} isFocused={emailFocused} />
             </S.IconWrapper>
             <S.StyledInput
+              id="email"
               isFocused={emailFocused}
               minLength={6}
               maxLength={6}
@@ -99,6 +100,7 @@ function Login() {
               <S.Lockicon size={20} isFocused={psFocused} />
             </S.IconWrapper>
             <S.StyledInput
+              id="password"
               isFocused={psFocused}
               type="password"
               minLength={4}

@@ -148,6 +148,7 @@ function Signup() {
             </S.IconWrapper>
 
             <S.StyledInput
+              id="email"
               isFocused={emailFocused}
               minLength={6}
               maxLength={6}
@@ -167,6 +168,7 @@ function Signup() {
             </S.IconWrapper>
 
             <S.StyledInput
+              id="password"
               isFocused={psFocused}
               type="password"
               minLength={4}
@@ -185,6 +187,7 @@ function Signup() {
             </S.IconWrapper>
 
             <S.StyledInput
+              id="passwordCheck"
               isFocused={psreFocused}
               type="password"
               minLength={4}
@@ -203,6 +206,7 @@ function Signup() {
             </S.IconWrapper>
 
             <S.StyledInput
+              id="id"
               isFocused={idFocused}
               onChange={handleIdChange}
               onFocus={handleIdFocus}
@@ -218,6 +222,7 @@ function Signup() {
             </S.IconWrapper>
 
             <S.StyledInput
+              id="username"
               isFocused={nameFocused}
               onChange={handleNameChange}
               onFocus={handleNameFocus}
@@ -228,6 +233,7 @@ function Signup() {
           </S.InputContainerName>
 
           <S.Manbutton
+            id="man"
             isFocused={manButtonClicked}
             onClick={handleManButtonClick}
           >
@@ -235,6 +241,7 @@ function Signup() {
           </S.Manbutton>
 
           <S.Womanbutton
+            id="woman"
             isFocused={womanButtonClicked}
             onClick={handleWomanButtonClick}
           >
