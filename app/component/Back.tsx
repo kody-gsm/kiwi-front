@@ -11,8 +11,8 @@ export const Backimg2 = styled.img`
   width: 840px;
   height: 620px;
   display: block;
-  margin-left: 49vw;
-  margin-top: -32vh;
+  margin-left: 45vw;
+  margin-top: -47vh;
 `;
 
 function Back() {

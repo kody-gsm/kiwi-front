@@ -60,7 +60,7 @@ export const EmailContainer = styled.div<{isFocused: boolean;}>`
   border-radius: 10px;
   margin-top: 5vh;
   padding-left: 20px;
-  border : ${(props) => (props.isFocused) ? "solid 1px #34AF47;" : "solid 1px #C3C3C3100;"}
+  border : ${(props) => (props.isFocused) ? "solid 1px #34AF47;" : "solid 1px #C3C3C3100;"};
 `;
 
 export const PsContainer = styled.div<{isFocused: boolean;}>`
@@ -74,7 +74,7 @@ export const PsContainer = styled.div<{isFocused: boolean;}>`
   border-radius: 10px;
   margin-top: 5vh;
   padding-left: 20px;
-  border : ${(props) => (props.isFocused) ? "solid 1px #34AF47;" : "solid 1px #C3C3C3100;"}
+  border : ${(props) => (props.isFocused) ? "solid 1px #34AF47;" : "solid 1px #C3C3C3100;"};
 `;
 
 
@@ -87,7 +87,7 @@ export const IconWrapper = styled.div`
 export const StyledInput = styled.input<{isFocused: boolean;}>`
   background-color: transparent;
   border: none;
-  color: ${(props) => (props.isFocused) ? "black;" : "#C3C3C3;"}
+  color: ${(props) => (props.isFocused) ? "black;" : "#C3C3C3;"};
   font-weight: bold;
   padding: 10px;
   flex: 1;
@@ -110,7 +110,7 @@ export const Pwfind = styled(Link)`
 `;
 
 export const Domain = styled.p<{ isFocused: boolean; inputValue: string }>`
-  color: ${(props) => (props.isFocused) ? "#black;" : "#C3C3C3;"}
+  color: ${(props) => (props.isFocused) ? "#black;" : "#C3C3C3;"};
   font-weight: bold;
   flex: 1;
   margin-left: ${(props) => (props.isFocused || props.inputValue ? "-10.3vw" : "-16vw")};
@@ -148,7 +148,7 @@ export const Authbutton = styled.button<{inputValue: string;}>`
   font-weight: bold;
   color: white;
   background-color: #43A953;
-  opacity: ${(props) => (props.inputValue) ? "100%;" : "30%;"}
+  opacity: ${(props) => (props.inputValue) ? "100%;" : "30%;"};
 `
 
 export const LoginButton = styled.button<{isFormValid: boolean;}>`
@@ -163,13 +163,13 @@ export const LoginButton = styled.button<{isFormValid: boolean;}>`
   margin-top: 7vh;
   border-radius: 10px;
   font-weight: bold;
-  opacity: ${(props) => (props.isFormValid) ? "100%;" : "30%;"}
+  opacity: ${(props) => (props.isFormValid) ? "100%;" : "30%;"};
 `;
 
 export const Idicon = styled(MdFormatListNumbered)<{isFocused : boolean}>`
-  color: ${(props) => props.isFocused ? "black" : "#C3C3C3"}
+  color: ${(props) => props.isFocused ? "black" : "#C3C3C3"};
 `;
 
 export const Peopleicon = styled(IoPersonOutline)<{isFocused : boolean}>`
-  color: ${(props) => props.isFocused ? "black" : "#C3C3C3"}
+  color: ${(props) => props.isFocused ? "black" : "#C3C3C3"};
 `;
