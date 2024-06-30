@@ -1,14 +1,83 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import * as S from "../stylesheets/check";
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import axios from 'axios';
+import { FilterCriteria, Student } from './types';
 
-export default function Filter() {
-  const [open, setOpen] = React.useState(false);
+interface FilterProps {
+  onApplyFilter: (students: Student[]) => Promise<void>;
+}
+
+const getStatusString = (status: '출석' | '외출' | '조퇴' | '결석'): 'ATTENDANCE' | 'OUTING' | 'LEAVE' | 'ABSENT' => {
+  switch (status) {
+    case '출석':
+      return 'ATTENDANCE';
+    case '외출':
+      return 'OUTING';
+    case '조퇴':
+      return 'LEAVE';
+    case '결석':
+      return 'ABSENT';
+    default:
+      throw new Error('Invalid status');
+  }
+};
+
+const Filter: React.FC<FilterProps> = ({ onApplyFilter }) => {
+  const [open, setOpen] = useState(false);
+  const [selectedGrades, setSelectedGrades] = useState<number[]>([]);
+  const [selectedClasses, setSelectedClasses] = useState<number[]>([]);
+  const [selectedStatuses, setSelectedStatuses] = useState<('ATTENDANCE' | 'OUTING' | 'LEAVE' | 'ABSENT')[]>([]);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const toggleGrade = (grade: number) => {
+    setSelectedGrades((prev) =>
+      prev.includes(grade) ? prev.filter((g) => g !== grade) : [...prev, grade]
+    );
+  };
+
+  const toggleClass = (cls: number) => {
+    setSelectedClasses((prev) =>
+      prev.includes(cls) ? prev.filter((c) => c !== cls) : [...prev, cls]
+    );
+  };
+
+  const toggleStatus = (status: '출석' | '외출' | '조퇴' | '결석') => {
+    setSelectedStatuses((prev) =>
+      prev.includes(getStatusString(status)) ? prev.filter((s) => s !== getStatusString(status)) : [...prev, getStatusString(status)]
+    );
+  };
+
+  const handleApply = async () => {
+    try {
+      const gradesSum = selectedGrades.reduce((sum, grade) => sum + grade * 1000, 0);
+      const classesSum = selectedClasses.reduce((sum, cls) => sum + cls * 100, 0);
+      const criteria: FilterCriteria = {
+        grades: gradesSum ? [gradesSum] : [],
+        classes: classesSum ? [classesSum] : [],
+        statuses: selectedStatuses,
+      };
+
+      const response = await axios.post('/api/filter', criteria);
+
+      onApplyFilter(response.data.students.map((student: any) => ({
+        id: student.id,
+        studentimg: student.studentimg,
+        studentid: student.studentid,
+        studentnumber: student.studentnumber,
+        gender: student.gender,
+        status: student.status // 이미 문자열 형태로 받아와서 변환할 필요 없음
+      }))); // 학생 데이터를 필터링하여 onApplyFilter에 전달
+
+      handleClose();
+    } catch (error) {
+      console.error('Error applying filter:', error);
+      // Handle error
+    }
+  };
 
   return (
     <div>
@@ -20,14 +89,47 @@ export default function Filter() {
         aria-describedby="modal-modal-description"
       >
         <S.filterbox>
-          <Typography id="modal-modal-title" variant="h5" component="h2">
-            필터
-          </Typography>
-          <S.filterlist />
+          <S.grade>
+            {[1, 2, 3].map((grade) => (
+              <S.filterlist key={grade}>
+                <S.filterspan
+                  onClick={() => toggleGrade(grade)}
+                  isSelected={selectedGrades.includes(grade)}
+                >
+                  {grade}학년
+                </S.filterspan>
+              </S.filterlist>
+            ))}
+          </S.grade>
+          <S.classes>
+            {[1, 2, 3, 4].map((cls) => (
+              <S.filterlist key={cls}>
+                <S.filterspan
+                  onClick={() => toggleClass(cls)}
+                  isSelected={selectedClasses.includes(cls)}
+                >
+                  {cls}반
+                </S.filterspan>
+              </S.filterlist>
+            ))}
+          </S.classes>
+          <S.state>
+            {['출석', '외출', '조퇴', '결석'].map((status) => (
+              <S.filterlist key={status}>
+                <S.filterspan
+                  onClick={() => toggleStatus(status as '출석' | '외출' | '조퇴' | '결석')}
+                  isSelected={selectedStatuses.includes(getStatusString(status as '출석' | '외출' | '조퇴' | '결석'))}
+                >
+                  {status}
+                </S.filterspan>
+              </S.filterlist>
+            ))}
+          </S.state>
+          <Button onClick={handleApply}>확인</Button>
         </S.filterbox>
       </Modal>
     </div>
   );
-}
+};
 
-// mt == 글과 글 사이에 세로 간격
+export default Filter;

@@ -1,92 +1,73 @@
-import styled from "styled-components";
-
-export const main = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-`
-
-export const container = styled.div`
-    width: 80%;
-    display: flex;
-    justify-content: flex-start;
-    padding: 42px;
-    gap: 30px;
-    flex-wrap: wrap;
-`
-
-export const student = styled.div`
-    width: 17vw;
-    height: 38svh; //학번용 29
-    background-color: white;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-`
-
-export const studentimg = styled.img`
-    width: 50%;
-    height: 40%;
-    object-fit: scale-down;
-`
-
-export const studentid = styled.p`
-    font-weight: bold;
-    font-size: x-large;
-`
-
-export const studentdata = styled.div`
-    width: 80%;
-    justify-content:flex-start;
-    display: flex;
-    flex-direction: column;
-
-`
-
-export const studentnumber = styled.p`
-    font-weight: bold;
-    font-size: medium;
-`
-
-export const gender = styled.div`
-    width: 30%;
-    height: 50%;
-    background-color: #2B80FF;
-    color: white;
-    font-weight: bold;
-    align-items: center;
-    text-align: center;
-`
-
-export const gap = styled.div`
-    height: 10px;
-`
+import styled from 'styled-components';
 
 export const filterbox = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40%;
-  height: 50%;
+  display: flex;
+  flex-direction: column;
   background-color: white;
-  border-radius: 20px;
-  box-Shadow: 24;
-`
+  padding: 20px;
+  border-radius: 8px;
+  outline: none;
+`;
+
+export const grade = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+`;
+
+export const classes = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+`;
+
+export const state = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+`;
 
 export const filterlist = styled.div`
-    width: 15%;
-    height: 10%;
-    background-color: #D3D3D3;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    text-align: center;
-`
+  margin-right: 10px;
+`;
 
-//id, email, =>
+export const filterspan = styled.span<{ isSelected: boolean }>`
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: ${({ isSelected }) => (isSelected ? 'blue' : 'white')};
+  color: ${({ isSelected }) => (isSelected ? 'white' : 'black')};
+  &:hover {
+    background-color: lightgray;
+  }
+`;
+
+export const main = styled.div`
+  padding: 20px;
+`;
+
+export const student = styled.div`
+  margin-bottom: 20px;
+`;
+
+export const gap = styled.div`
+  margin-bottom: 10px;
+`;
+
+export const studentimg = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+`;
+
+export const studentid = styled.div`
+  font-size: 18px;
+  font-weight: bold;
+`;
+
+export const studentdata = styled.div`
+  font-size: 14px;
+`;
+
+export const studentnumber = styled.div``;
+
+export const gender = styled.div``;
+
+

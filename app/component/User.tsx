@@ -1,39 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import * as S from "../stylesheets/check";
+import { Student } from './types';
 
-export default function User() {
-    const [student, setStudent] = useState({
-        studentimg: '',
-        studentid: '',
-        studentnumber: '',
-        gender: ''
-    });
-
-    useEffect(() => {
-        axios.get('/api/student')
-            .then(response => {
-                setStudent({
-                    studentimg: response.data.studentimg,
-                    studentid: response.data.studentid,
-                    studentnumber: response.data.studentnumber,
-                    gender: response.data.gender
-                });
-            })
-            .catch(error => {
-                console.error("못 받았다. ㅄ야", error);
-            });
-    }, []);
-
-    return (
-        <S.student>
-            <S.gap />
-            <S.studentimg src={student.studentimg || "/profile.png"} />
-            <S.studentid>{student.studentid}</S.studentid>
-            <S.studentdata>
-                <S.studentnumber>학번 : {student.studentnumber}</S.studentnumber>
-                <S.gender>{student.gender}</S.gender>
-            </S.studentdata>
-        </S.student>
-    );
+interface UserProps {
+  student: Student;
 }
+
+const User: React.FC<UserProps> = ({ student }) => {
+  // 학번 변환 함수
+  const formatStudentId = (grade: number, cls: number, id: number): string => {
+    return `${grade}${cls}${id.toString().padStart(2, '0')}`;
+  };
+
+  return (
+    <S.student>
+      <S.gap />
+      <S.studentimg src={student.studentimg || "/profile.png"} />
+      <S.studentid>{formatStudentId(student.grade, student.class, student.id)}</S.studentid>
+      <S.studentdata>
+        <S.studentnumber>학번 : {formatStudentId(student.grade, student.class, student.id)}</S.studentnumber>
+        <S.gender>{student.status}</S.gender>
+      </S.studentdata>
+    </S.student>
+  );
+};
+
+export default User;
