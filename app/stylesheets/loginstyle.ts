@@ -2,66 +2,105 @@ import styled from "styled-components";
 import Link from "next/link";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdLockOutline } from "react-icons/md";
+import "../Fonts/Font.css";
 
 export const Logindiv = styled.div`
-  width: 39vw;
-  height: 63vh;
+  width: 50%;
+  height: 100%;
   background-color: white;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  border-radius: 20px;
+  z-index: 1000;
+  position: fixed;
 `;
 
 export const Logingreen = styled.div`
-  width: 39vw;
-  height: 63vh;
-  background-color: #43A953;
-  top: 50%;
-  left: 50%;
-  transform: translate(-44.5%, -50%);
-  position: absolute;
-  border-radius: 20px;
-  opacity: 35%;
+  width: 100%;
+  height: 100%;
+  background-color: #6AD37B;
+  position: fixed;
 `;
 
 export const Logo = styled.img`
   width: 165px;
   height: 75px;
   display: block;
-  margin-left: auto;
   margin-right: auto;
+  object-fit: cover;
   margin-top: 4vh;
+  margin-left: 1vw;
 `;
 
-export const Backimg = styled.img`
-  width: 690px;
-  height: 620px;
+export const LoginText = styled.span`
+  font-family: Pretendard-ExtraBold;
+  -webkit-text-stroke: 4px;
+  color: black;
+  font-size: 4vw;
+  padding-left: 80px;
   display: block;
-  margin-right: auto;
-`;
+  margin-top: 3vw;
+`
 
-export const Backimg2 = styled.img`
-  width: 840px;
-  height: 620px;
+export const LabelText = styled.span`
+  font-family: Pretendard-ExtraBold;
+  -webkit-text-stroke: 1.5px;
+  color: black;
+  font-size: 1.5vw;
+  padding-left: 110px;
   display: block;
-  margin-left: 49vw;
-  margin-top: -32vh;
-`;
+  margin-top: 1vw;
+`
+
+export const AdText = styled.span`
+  font-family: Pretendard-Regular;
+  -webkit-text-stroke: 2.5px;
+  color: white;
+  display: block;
+  margin-left: 55vw;
+  margin-top: 5vh;
+  font-size: 4.5vw;
+`
+
+export const AdTextKiwi = styled.span`
+  font-family: Pretendard-Regular;
+  -webkit-text-stroke: 4px;
+  color: white;
+  display: block;
+  margin-left: 55vw;
+  margin-top: -3.5vh;
+  font-size: 4.5vw;
+`
+
+export const AdTextSmall = styled.span`
+  font-family: Pretendard-Regular;
+  -webkit-text-stroke: 1px;
+  color: white;
+  display: block;
+  margin-left: 55vw;
+  margin-top: -3vh;
+  font-size: 1.5vw;
+`
+
+export const LoginImg = styled.img` 
+  width: 20%;
+  height: 50%;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: 15vw;
+  margin-top: 8vh;
+  border-radius: 20px;
+`
 
 export const InputContainer = styled.div<{isFocused: boolean;}>`
-  width: 80%;
-  height: 7.9vh;
-  background-color: #C3C3C360;
+  width: 75%;
+  height: 9.5vh;
+  background-color: white;
   display: flex;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  margin-top: 5vh;
+  margin-top: 1vh;
   padding-left: 20px;
-  border : ${(props) => (props.isFocused) ? "solid 1px #34AF47;" : "solid 1px #C3C3C3100;"};
+  border : ${(props) => (props.isFocused) ? "solid 1px #6AD37B;" : "solid 1px black;"};
 `;
 
 export const IconWrapper = styled.div`
@@ -80,59 +119,58 @@ export const StyledInput = styled.input<{isFocused: boolean;}>`
   &:focus {
     outline: none;
   }
-
-  &::placeholder{
-		color: #C3C3C395;
-	}
 `
 
 
 export const Pwfind = styled(Link)`
   color: #585858;
   display: block;
-  margin-left: 29vw;
+  margin-left: 38vw;
   margin-top: 1vh;
-  font-weight: 500;
   cursor: pointer;
+  font-family: Pretendard-Regular;
+  font-size: 1vw;
+
 `;
 
-export const Domain = styled.p<{ isFocused: boolean; inputValue: string }>`
-  color: ${(props) => (props.isFocused) ? "#black;" : "#C3C3C3;"};
+export const Domain = styled.p`
+  color: #C3C3C3;
   font-weight: bold;
   flex: 1;
-  margin-left: ${(props) => (props.isFocused || props.inputValue ? "-20.5vw" : "-28vw")};
-  transition: margin-left 0.3s ease;
+  margin-left: 12vw;
 `
 
 export const LoginButton = styled.button`
-  background-color: #43A953;
+  background-color: #6AD37B;
   color: white;
-  width: 80%;
-  height: 8vh;
+  width: 75%;
+  height: 10vh;
   text-align: center;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 7vh;
-  border-radius: 10px;
-  font-weight: bold;
+  margin-top: 18vh;
+  border-radius: 15px;
+  font-family: Pretendard-ExtraBold;
+  font-size: 1.5vw;
+  -webkit-text-stroke: 1px;
 `;
 
 export const kiwisign = styled.p`
   color: #585858;
   display: block;
-  margin-left: 9vw;
+  margin-left: 15vw;
   margin-top: 1vh;
-  font-weight: 500;
   cursor: pointer;
+  font-family: Pretendard-Regular;
 `;
 
 export const Linkitem = styled(Link)`
   color: black;
   display: block;
-  margin-left: 25vw;
+  margin-left: 29vw;
   margin-top: -1.45em;
-  font-weight: 500;
+  font-family: Pretendard-Regular;
   cursor: pointer;
 `;
 
