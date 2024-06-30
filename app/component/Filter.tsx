@@ -69,8 +69,8 @@ const Filter: React.FC<FilterProps> = ({ onApplyFilter }) => {
         studentid: student.studentid,
         studentnumber: student.studentnumber,
         gender: student.gender,
-        status: student.status // 이미 문자열 형태로 받아와서 변환할 필요 없음
-      }))); // 학생 데이터를 필터링하여 onApplyFilter에 전달
+        status: student.status
+      })));
 
       handleClose();
     } catch (error) {

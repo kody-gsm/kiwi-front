@@ -7,7 +7,6 @@ interface UserProps {
 }
 
 const User: React.FC<UserProps> = ({ student }) => {
-  // 학번 변환 함수
   const formatStudentId = (grade: number, cls: number, id: number): string => {
     return `${grade}${cls}${id.toString().padStart(2, '0')}`;
   };
