@@ -2,8 +2,8 @@
 import React, { ReactElement } from 'react';
 import { jsx } from 'react/jsx-runtime';
 import styled, { WebTarget } from 'styled-components';
-import { Route } from 'react-router-dom';
 import Link from 'next/link';
+import { useState } from 'react';
 
 // 상속받는 깊이에 따라서, 주석 오른쪽에 식별 숫자를 넣어주었다. 시작은 0이다. (예: 0을 상속 => 1 / 1을 상속 => 2)
 // route 속성은 상속받아도 처음은 0이다. (styled.~~)로 간주한다.
@@ -122,13 +122,12 @@ const LogOutBtn = styled(LogBtn)`
     }
 `;
 
-// 네비게이션바이다. bool형식 prop.login에 값에 따라서 버튼을 변화 시킨다.
-export default function NavBar(prop: { login: Boolean; }){
-    var IsLogin = Boolean(prop.login);
+// 네비게이션바이다.
+export default function NavBar(){
+    const [isLogin, setIsLogin] = useState(Boolean);// 이 값만 움직이면 nav바가 알아서 맞춰준다
     let LogButton : () => React.JSX.Element; // 로그인,로그아웃,회원가입등을 나타내는 버튼에 공간
 
-    console.log(prop.login);
-    if(prop.login){ // 로그인 인자에 따른 값분할
+    if(isLogin){ // 로그인 인자에 따른 값분할
         LogButton = ()=>(<>
             <LogOutBtn href={'/'}>로그아웃</LogOutBtn>
         </>);

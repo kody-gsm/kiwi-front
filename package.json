@@ -3,52 +3,38 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-<<<<<<< HEAD
-    "dev": "next dev",
-=======
     "dev": "cross-env BROWSER=chrome next dev",
->>>>>>> cfa775a241a74c46fd8c12ec8fd564ef30e2b7a2
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.20",
     "@typescript-eslint/eslint-plugin": "^7.13.0",
->>>>>>> cfa775a241a74c46fd8c12ec8fd564ef30e2b7a2
+    "autoprefixer": "^10.4.19",
     "axios": "^1.7.2",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-<<<<<<< HEAD
-    "react-router-dom": "^6.23.1",
-    "styled-component": "^2.8.0",
-=======
     "react-icons": "^5.2.1",
     "router": "^1.3.8",
     "styled": "^1.0.0",
->>>>>>> cfa775a241a74c46fd8c12ec8fd564ef30e2b7a2
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "swc": "^1.0.11",
+    "tailwind": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
-<<<<<<< HEAD
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-=======
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18",
     "babel-plugin-styled-components": "^2.1.4",
     "cross-env": "^7.0.3",
->>>>>>> cfa775a241a74c46fd8c12ec8fd564ef30e2b7a2
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4",
     "typescript": "^5"
   }
 }

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import NavBar from "./navbar";
+import NavBar from "../component/navbar";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -258,6 +258,7 @@ export default function Main(): JSX.Element {
         </DetailContainerBig>
 
       </ContentContainer>
+      <NavBar></NavBar>
     </>
   );
 }
