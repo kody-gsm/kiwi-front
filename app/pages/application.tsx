@@ -1,10 +1,8 @@
 import axios from 'axios';
+import styled from 'styled-components';
 import React, { useState, useEffect } from 'react';
 
-// 신청문서 제출
-function send(){
-    
-}
+
 
 // 신청 페이지
 export default function Application(): JSX.Element{
