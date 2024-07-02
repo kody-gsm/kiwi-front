@@ -122,17 +122,17 @@ const LogOutBtn = styled(LogBtn)`
 // 네비게이션바이다.
 export default function NavBar(): JSX.Element{
     const [isLogin, setIsLogin] = useState(Boolean);// 이 값만 움직이면 nav바가 알아서 맞춰준다
-    let LogButton : () => React.JSX.Element; // 로그인,로그아웃,회원가입등을 나타내는 버튼에 공간
+    let LogButton : JSX.Element; // 로그인,로그아웃,회원가입등을 나타내는 버튼에 공간
 
     if(isLogin){ // 로그인 인자에 따른 값분할
-        LogButton = ()=>(<>
+        LogButton = (<div>
             <LogOutBtn href={'/'}>로그아웃</LogOutBtn>
-        </>);
+        </div>);
     }else{
-        LogButton = ()=>(<>
+        LogButton = (<div>
             <LogInBtn href={'/login'}>로그인</LogInBtn>
             <LogJoinBtn href={'/signup'}>회원가입</LogJoinBtn>
-        </>);
+        </div>);
     }
 
     return (
@@ -145,7 +145,7 @@ export default function NavBar(): JSX.Element{
                     <List href={''}>MY</List>
                 </ListSmallDiv>
             </ListBigDiv>
-            <LogButton></LogButton>
+            {LogButton}
             <LogoImg as='img' src={'/logo.svg'} alt='logo'/>
         </NavDiv>
     );
