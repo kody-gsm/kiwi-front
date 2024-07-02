@@ -75,7 +75,7 @@ export const AdTextSmall = styled.span`
   color: white;
   display: block;
   margin-left: 55vw;
-  margin-top: -3vh;
+  margin-top: -2.5vh;
   font-size: 1.5vw;
 `
 
@@ -85,11 +85,11 @@ export const LoginImg = styled.img`
   object-fit: cover;
   margin-left: auto;
   margin-right: 15vw;
-  margin-top: 8vh;
+  margin-top: 7vh;
   border-radius: 20px;
 `
 
-export const InputContainer = styled.div<{isFocused: boolean;}>`
+export const InputContainer = styled.div`
   width: 75%;
   height: 9.5vh;
   background-color: white;
@@ -100,7 +100,19 @@ export const InputContainer = styled.div<{isFocused: boolean;}>`
   border-radius: 10px;
   margin-top: 1vh;
   padding-left: 20px;
-  border : ${(props) => (props.isFocused) ? "solid 1px #6AD37B;" : "solid 1px black;"};
+  border: solid 1px black;
+`;
+
+export const StyledInput = styled.input`
+  background-color: transparent;
+  border: none;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  flex: 1;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const IconWrapper = styled.div`
@@ -108,19 +120,6 @@ export const IconWrapper = styled.div`
   align-items: center;
   margin-right: 10px;
 `;
-
-export const StyledInput = styled.input<{isFocused: boolean;}>`
-  background-color: transparent;
-  border: none;
-  color: ${(props) => (props.isFocused) ? "black;" : "#C3C3C3;"};
-  font-weight: bold;
-  padding: 10px;
-  flex: 1;
-  &:focus {
-    outline: none;
-  }
-`
-
 
 export const Pwfind = styled(Link)`
   color: #585858;
@@ -137,7 +136,7 @@ export const Domain = styled.p`
   color: #C3C3C3;
   font-weight: bold;
   flex: 1;
-  margin-left: 12vw;
+  margin-left: 15vw;
 `
 
 export const LoginButton = styled.button`
@@ -174,10 +173,15 @@ export const Linkitem = styled(Link)`
   cursor: pointer;
 `;
 
-export const Lockicon = styled(MdLockOutline)<{isFocused : boolean}>`
-  color: ${(props) => props.isFocused ? "black" : "#C3C3C3"};
+export const Manbutton = styled.button`
+  background-color: transparent;
+  border: none;
+`
+
+export const Lockicon = styled(MdLockOutline)`
+  color: black;
 `;
 
-export const Peopleicon = styled(IoPersonOutline)<{isFocused : boolean}>`
-  color: ${(props) => props.isFocused ? "black" : "#C3C3C3"};
+export const Peopleicon = styled(IoPersonOutline)`
+  color: black;
 `;
