@@ -120,7 +120,7 @@ export default function Application(): JSX.Element{
     // + 추가로 이렇게하면 소소한 디자인 변경에는 취약해도, 큰 디자인변경에 대처하기 쉽다. (내 생각과 설계이기 때문에 정석은 아닐것이다.)
     // 신청 페이지 내부 분할
     if(page === 0){ // 0번 (선택지 비활성)
-        ELEMENT = (<div><WhiteTheme>
+        ELEMENT = (<><WhiteTheme>
             <ApplicationContainer>
                 <ApplicationBtn onClick={()=>{setPage(1)}}>
                     <Medal src='/medal.png'></Medal>
@@ -143,9 +143,9 @@ export default function Application(): JSX.Element{
             
             
         </WhiteTheme>
-        <NavBar></NavBar></div>);
+        <NavBar></NavBar></>);
     }else if(page === 1){ // 1번 (기능반)
-        ELEMENT = (<div><WhiteTheme>
+        ELEMENT = (<><WhiteTheme>
             <ApplicationContainer>
                 <ApplicationBtnGreen onClick={()=>{setPage(0)}}>
                     <Medal src='/medalW.png'></Medal>
@@ -167,9 +167,9 @@ export default function Application(): JSX.Element{
             </ApplicationContainer>
             
         </WhiteTheme>
-        <NavBar></NavBar></div>);
+        <NavBar></NavBar></>);
     }else if(page === 2){ // 2번 (인정결석)
-        ELEMENT = (<div><WhiteTheme>
+        ELEMENT = (<><WhiteTheme>
             <ApplicationContainer>
                 <ApplicationBtn onClick={()=>{setPage(1)}}>
                     <Medal src='/medal.png'></Medal>
@@ -191,9 +191,9 @@ export default function Application(): JSX.Element{
             </ApplicationContainer>
             
         </WhiteTheme>
-        <NavBar></NavBar></div>);
+        <NavBar></NavBar></>);
     }else if(page === 3){ // 3번 (서비스 오류)
-        ELEMENT = (<div><WhiteTheme>
+        ELEMENT = (<><WhiteTheme>
             <ApplicationContainer>
                 <ApplicationBtn onClick={()=>{setPage(1)}}>
                     <Medal src='/medal.png'></Medal>
@@ -215,7 +215,7 @@ export default function Application(): JSX.Element{
             </ApplicationContainer>
             
         </WhiteTheme>
-        <NavBar></NavBar></div>);
+        <NavBar></NavBar></>);
     }else{
         console.error("error: 9와1/4선택지로 인하여 마법부에서 페이지를 삭제하였습니다.");
     }
