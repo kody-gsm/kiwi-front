@@ -3,36 +3,11 @@ import axios from "axios";
 import Router from "next/router";
 import * as S from "../stylesheets/loginstyle";
 import "../stylesheets/divstyle.css";
-import { PiX } from "react-icons/pi";
-
-declare const process: {
-  env: {
-    Login_URL?: string;
-  };
-};
 
 function Login() {
-  const [emailFocused, setEmailFocused] = useState(false);
-  const [psFocused, setPsFocused] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
-  const handleEmailFocus = () => {
-    setEmailFocused(true);
-  };
-
-  const handleEmailBlur = () => {
-    setEmailFocused(false);
-  };
-
-  const handlePasswordFocus = () => {
-    setPsFocused(true);
-  };
-
-  const handlePasswordBlur = () => {
-    setPsFocused(false);
-  };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -42,11 +17,9 @@ function Login() {
     setPasswordValue(e.target.value);
   };
 
-  const isButtonDisabled =
-    inputValue.length === 0 ||
-    passwordValue.length === 0;
+  const isButtonDisabled = inputValue.length === 0 || passwordValue.length === 0;
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (isButtonDisabled) return;
 
@@ -54,14 +27,9 @@ function Login() {
     formData.append("email", inputValue);
     formData.append("password", passwordValue);
 
-    if (!process.env.Login_URL) {
-      setErrorMessage("Login URL is not set");
-      return;
-    }
-
     try {
       const response = await axios.post(
-        process.env.Login_URL,
+        "https://immortal-vervet-humbly.ngrok-free.app/login",
         formData,
         {
           headers: {
@@ -69,13 +37,16 @@ function Login() {
           },
         }
       );
-      window.location.replace('/check');
-    } catch (error: unknown) {
-      if (axios.isAxiosError(error) && error.response && error.response.data) {
+
+      if (response.status === 200) {
+        window.location.replace('/check');
+      }
+    } catch (error: any) {
+      if (error.response && error.response.data) {
         setErrorMessage(error.response.data);
         alert(error.response.data);
       } else {
-        console.error("로그인 오류", error);
+        console.error("Error:에러", error);
       }
     }
   };
@@ -84,50 +55,47 @@ function Login() {
     <>
       <S.Logindiv>
         <S.Logo src={"/kiwi.png"} alt="logo" />
+        <S.LoginText>로그인</S.LoginText>
         <form method="post" onSubmit={handleSubmit}>
-          <S.LoginText>로그인</S.LoginText>
           <S.LabelText>이메일</S.LabelText>
-          <S.InputContainer isFocused={emailFocused}>
+          <S.InputContainer>
             <S.IconWrapper>
-              <S.Peopleicon size={20} isFocused={emailFocused} />
+              <S.Peopleicon size={20} />
             </S.IconWrapper>
             <S.StyledInput
               id="email"
-              isFocused={emailFocused}
               minLength={6}
               maxLength={6}
-              required
-              onFocus={handleEmailFocus}
-              onBlur={handleEmailBlur}
+              value={inputValue}
               onChange={handleEmailChange}
+              required
             />
             <S.Domain>@gsm.hs.kr</S.Domain>
           </S.InputContainer>
 
           <S.LabelText>비밀번호</S.LabelText>
-          <S.InputContainer isFocused={psFocused}>
+          <S.InputContainer>
             <S.IconWrapper>
-              <S.Lockicon size={20} isFocused={psFocused} />
+              <S.Lockicon size={20} />
             </S.IconWrapper>
             <S.StyledInput
               id="password"
-              isFocused={psFocused}
               type="password"
               minLength={4}
               maxLength={31}
-              required
-              onFocus={handlePasswordFocus}
-              onBlur={handlePasswordBlur}
+              placeholder="비밀번호"
+              value={passwordValue}
               onChange={handlePasswordChange}
+              required
             />
           </S.InputContainer>
 
           <S.Pwfind href={"/passwordfind"}>비밀번호 찾기</S.Pwfind>
-          <S.LoginButton type="submit">로그인</S.LoginButton>
-          <div>
+          <S.LoginButton type="submit" disabled={isButtonDisabled}>로그인</S.LoginButton>
+          <>
             <S.kiwisign>Kiwi를 처음 사용하시는 유저들은?</S.kiwisign>
             <S.Linkitem href={"/signup"}>회원가입</S.Linkitem>
-          </div>
+          </>
         </form>
       </S.Logindiv>
       <S.Logingreen>
@@ -138,7 +106,6 @@ function Login() {
       </S.Logingreen>
     </>
   );
-} 
+}
 
 export default Login;
-
