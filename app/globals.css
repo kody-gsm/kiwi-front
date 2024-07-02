@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Jalnan2TTF';
+  font-weight: 400;
+  src: url('/Jalnan2TTF.ttf') format('truetype');
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   background-color: #F3F3F3;

@@ -21,11 +21,6 @@ const NavDiv = styled.div`
     align-items: center;
     background-color: white;
     padding: 0px;
-`;
-
-// 코딩할때 뭔가 싸하다 했더니... 디자인에 외곽선 속성이 개별 선이였다...
-// 이미 많은 속성이 상속받기에, 개별적으로 NavDiv에 외곽선 속성을 추가한다. //1
-const PerfectNavDiv = styled(NavDiv)`
     border-bottom: 1px solid black;
 `;
 
@@ -36,7 +31,8 @@ const LogoImg = styled(NavDiv)`
     width: 168px;
     height: 79px;
     object-fit: contain;
-    -webkit-user-select:none;
+    user-select:none;
+    border: 0px;
 `;
 
 // 네비게이션 목록을 가운데 정렬하기위한 바탕이다. //1
@@ -54,6 +50,7 @@ const ListSmallDiv = styled(NavDiv)`
     justify-content: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 50px;
+    border: 0px;
 `;
 
 // 네비게이션 목록이다. 상속받아서 재사용 할만한 코드가 없으므로, 그냥 상속받지 않는다. //0
@@ -67,7 +64,7 @@ const List = styled(Link)`
     text-align: left;
     color: black;
     text-decoration: none;
-    -webkit-user-select:none;
+    user-select:none;
     &:hover{
         color: #43A953;
     }
@@ -86,7 +83,7 @@ const LogBtn = styled(Link)`
     text-align: center;
     align-content: center;
     justify-content: center;
-    -webkit-user-select:none;
+    user-select:none;
     cursor: pointer;
     text-decoration: none;
 `;
@@ -139,7 +136,7 @@ export default function NavBar(): JSX.Element{
     }
 
     return (
-        <PerfectNavDiv>
+        <NavDiv>
             <ListBigDiv>
                 <ListSmallDiv>
                     <List href={''}>출결</List>
@@ -150,6 +147,6 @@ export default function NavBar(): JSX.Element{
             </ListBigDiv>
             <LogButton></LogButton>
             <LogoImg as='img' src={'/logo.svg'} alt='logo'/>
-        </PerfectNavDiv>
+        </NavDiv>
     );
 }
