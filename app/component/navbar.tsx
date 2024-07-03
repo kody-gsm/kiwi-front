@@ -125,7 +125,7 @@ export default function NavBar(): JSX.Element{
     let LogButton : JSX.Element; // 로그인,로그아웃,회원가입등을 나타내는 버튼에 공간
 
     if(isLogin){ // 로그인 인자에 따른 값분할
-        LogButton = (<>
+        LogButton = (< >
             <LogOutBtn href={'/'}>로그아웃</LogOutBtn>
         </>);
     }else{
