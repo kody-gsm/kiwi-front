@@ -15,3 +15,7 @@ export interface FilterCriteria {
   classes: number[]; // 반
   statuses: ('ATTENDANCE' | 'OUTING' | 'LEAVE' | 'ABSENT')[]; // 상태
 }
+
+export interface BaseApplication {
+  
+}

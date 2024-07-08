@@ -8,6 +8,14 @@
   src: url('/Jalnan2TTF.ttf') format('truetype');
 }
 
+textarea{
+  resize: none;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   background-color: #F3F3F3;
