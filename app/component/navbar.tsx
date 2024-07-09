@@ -122,31 +122,49 @@ const LogOutBtn = styled(LogBtn)`
 // 네비게이션바이다.
 export default function NavBar(): JSX.Element{
     const [isLogin, setIsLogin] = useState(Boolean);// 이 값만 움직이면 nav바가 알아서 맞춰준다
+
     let LogButton : JSX.Element; // 로그인,로그아웃,회원가입등을 나타내는 버튼에 공간
+
+    let Returndata : JSX.Element; // 반환데이터
 
     if(isLogin){ // 로그인 인자에 따른 값분할
         LogButton = (< >
             <LogOutBtn href={'/'}>로그아웃</LogOutBtn>
         </>);
-    }else{
-        LogButton = (<>
-            <LogInBtn href={'/login'}>로그인</LogInBtn>
-            <LogJoinBtn href={'/signup'}>회원가입</LogJoinBtn>
-        </>);
-    }
 
-    return (
-        <NavDiv>
+        Returndata = (<NavDiv>
             <ListBigDiv>
                 <ListSmallDiv>
                     <List href={''}>출결</List>
                     <List href={'/application'}>신청</List>
                     <List href={''}>공지</List>
-                    <List href={''}>MY</List>
+                    <List href={'/my'}>MY</List>
                 </ListSmallDiv>
             </ListBigDiv>
             {LogButton}
             <LogoImg as='img' src={'/logo.svg'} alt='logo'/>
-        </NavDiv>
+        </NavDiv>);
+    }else{
+        LogButton = (<>
+            <LogInBtn href={'/login'}>로그인</LogInBtn>
+            <LogJoinBtn href={'/signup'}>회원가입</LogJoinBtn>
+        </>);
+        
+        Returndata = (<NavDiv>
+            <ListBigDiv>
+                <ListSmallDiv>
+                    <List href={''}>출결</List>
+                    <List href={''} onClick={()=>(alert('로그인 후 이용하여 주세요'))}>신청</List>
+                    <List href={''} onClick={()=>(alert('로그인 후 이용하여 주세요'))}>공지</List>
+                    <List href={''} onClick={()=>(alert('로그인 후 이용하여 주세요'))}>MY</List>
+                </ListSmallDiv>
+            </ListBigDiv>
+            {LogButton}
+            <LogoImg as='img' src={'/logo.svg'} alt='logo'/>
+        </NavDiv>);
+    }
+    
+    return (
+        Returndata
     );
 }
