@@ -114,6 +114,7 @@ const LogOutBtn = styled(LogBtn)`
     right: 50px;
     background-color: #FFFFFF;
     color: #000000;
+    border: 1px solid black;
     @media screen and (max-width: 1200px) {
         left: max(786px, 70vw + 156px);
     }
@@ -121,7 +122,7 @@ const LogOutBtn = styled(LogBtn)`
 
 // 네비게이션바이다.
 export default function NavBar(): JSX.Element{
-    const [isLogin, setIsLogin] = useState(Boolean);// 이 값만 움직이면 nav바가 알아서 맞춰준다
+    const [isLogin, setIsLogin] = useState(true);// 이 값만 움직이면 nav바가 알아서 맞춰준다 //테스트로 true
 
     let LogButton : JSX.Element; // 로그인,로그아웃,회원가입등을 나타내는 버튼에 공간
 
