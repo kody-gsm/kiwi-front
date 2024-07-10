@@ -59,7 +59,8 @@ export default function NoticeAdminAddition() {
                             onChange={(e) => setBody(e.target.value)} 
                         /> 
                         <br /> 
-                        <S.NoticeFormWrite type="submit">등록</S.NoticeFormWrite>
+                        <S.NoticeButtonWrite type="submit">등록</S.NoticeButtonWrite>
+                        <S.NoticeButtonBack href="#">돌아가기</S.NoticeButtonBack>
                     </S.NoticeForm>
                 </S.NoticeListDetailContainer>
             </S.NoticeListDetail>

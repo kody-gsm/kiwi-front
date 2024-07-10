@@ -104,13 +104,24 @@ export const NoticeBodyInput = styled.textarea`
     font-weight: bold;
 `;
 
-export const NoticeFormWrite = styled.button`
+export const NoticeButtonWrite = styled.button`
     margin-top: 20px;
     background: #6AD37B;
     border-radius: 3px;
     color: #FFFFFF;
     width: 70px;
+    padding: 5px 5px;
 `;
+
+export const NoticeButtonBack = styled.a`
+    margin-left: 15px;
+    background: #6AD37B;
+    border-radius: 3px;
+    color: #FFFFFF;
+    display: inline-block; /* 인라인 요소로 설정하여 텍스트 너비만큼만 차지하도록 변경 */
+    padding: 5px 5px;
+    font-size: 16px; /* 폰트 크기 설정 */
+`
 
 export const NoticeBody = styled.div`
     display: flex;
@@ -124,7 +135,7 @@ export const NoticeList = styled.div`
     border: 1px solid #999;
     background-color: #F7F7F7;
     border-radius: 7px;
-    margin: 10px 0; /* 상하 간격을 위해 margin-top과 margin-bottom 대신 사용 */
+    margin: 10px auto; /* Updated margin to center horizontally */
     padding: 10px;
 
     h3 {

@@ -15,9 +15,7 @@ export default function NoticeAdmin() {
                   
                 </S.NoticeHeader>
                 <S.NoticeBody>
-                    <S.NoticeList>
-
-                    </S.NoticeList>
+                    
                 </S.NoticeBody>
 
             </S.NoticeListBackground>
