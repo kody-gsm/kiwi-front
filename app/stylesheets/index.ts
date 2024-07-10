@@ -16,6 +16,7 @@ export const NoticeListBackground = styled.div`
     border-radius: 7px;
     margin: 10px;
     padding: 10px;
+    overflow-y: auto; /* 공지사항 목록이 넘칠 때 스크롤 활성화 */
 `;
 
 export const NoticeHeader = styled.div`
@@ -73,7 +74,7 @@ export const NoticeListA = styled.a`
 
 export const PlusButton = styled.span`
     font-size: 15px;
-`
+`;
 
 export const NoticeForm = styled.form`
     width: 100%;
@@ -91,7 +92,7 @@ export const NoticeTitleInput = styled.input`
     height: 50px;
     margin-top: 10px;
     font-size: 25px;
-`
+`;
 
 export const NoticeBodyInput = styled.textarea`
     font-size: 17px;
@@ -101,7 +102,7 @@ export const NoticeBodyInput = styled.textarea`
     margin-top: 10px;
     resize: none;
     font-weight: bold;
-`
+`;
 
 export const NoticeFormWrite = styled.button`
     margin-top: 20px;
@@ -109,21 +110,28 @@ export const NoticeFormWrite = styled.button`
     border-radius: 3px;
     color: #FFFFFF;
     width: 70px;
-`
+`;
 
 export const NoticeBody = styled.div`
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-`
+    flex-direction: column; /* 세로로 쌓이도록 설정 */
+    overflow-y: auto; /* 공지사항 목록이 넘칠 때 스크롤 활성화 */
+`;
 
 export const NoticeList = styled.div`
     width: 100%;
     max-width: 250px;
-    height: 100px;
     border: 1px solid #999;
     background-color: #F7F7F7;
     border-radius: 7px;
-    margin: 10px;
+    margin: 10px 0; /* 상하 간격을 위해 margin-top과 margin-bottom 대신 사용 */
     padding: 10px;
-`
+
+    h3 {
+        margin-bottom: 5px; /* 제목과 내용 사이 간격 설정 */
+    }
+
+    p {
+        display: none; /* 내용 숨김 */
+    }
+`;
