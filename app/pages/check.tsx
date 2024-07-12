@@ -10,7 +10,7 @@ const Check: React.FC = () => {
 
   const applyFilter = async (criteria: FilterCriteria) => {
     try {
-      const response = await axios.post('https://immortal-vervet-humbly.ngrok-free.app/filter', criteria);
+      const response = await axios.post('https://4fba-210-218-52-13.ngrok-free.app/filter', criteria);
 
       setFilteredStudents(response.data.students.map((student: any) => ({
         id: student.id,

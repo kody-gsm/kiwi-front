@@ -61,7 +61,7 @@ const Filter: React.FC<FilterProps> = ({ onApplyFilter }) => {
         statuses: selectedStatuses,
       };
 
-      const response = await axios.post('/api/filter', criteria);
+      const response = await axios.post('https://4fba-210-218-52-13.ngrok-free.app/api/filter', criteria);
 
       onApplyFilter(response.data.students.map((student: any) => ({
         id: student.id,

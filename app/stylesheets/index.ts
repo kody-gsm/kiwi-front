@@ -86,7 +86,40 @@ export const NoticeForm = styled.form`
     margin-top: 70px;
 `;
 
-export const NoticeTitleInput = styled.input`
+export const NoticeDetailBack = styled.div`
+    width: 100%;
+    height: 600px;
+    border: 1px solid #999;
+    background-color: #F7F7F7;
+    border-radius: 7px;
+    margin: 12px;
+    margin-top: 15px;
+    text-align: left;
+`
+
+export const NoticeListLook = styled.div`
+    width: 100%;
+    height: 600px;
+    border: 1px solid #999;
+    background-color: #F7F7F7;
+    border-radius: 7px;
+    margin: 12px;
+    margin-top: 15px;
+`;
+
+export const NoticeBack = styled.div`
+    width: 100%;
+    height: 550px;
+    border: 1px solid #999;
+    background-color: #F7F7F7;
+    border-radius: 7px;
+    margin: 12px;
+    margin-top: 70px;   
+`
+
+export const NoticeTitleInput = styled.input.attrs({
+    maxLength: 20 // maxLength 속성 추가
+})`
     width: 100%;
     max-width: 900px;
     height: 50px;
@@ -110,7 +143,7 @@ export const NoticeButtonWrite = styled.button`
     border-radius: 3px;
     color: #FFFFFF;
     width: 70px;
-    padding: 5px 5px;
+    padding: 6px 6px;
 `;
 
 export const NoticeButtonBack = styled.a`
@@ -137,6 +170,8 @@ export const NoticeList = styled.div`
     border-radius: 7px;
     margin: 10px auto; /* Updated margin to center horizontally */
     padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
 
     h3 {
         margin-bottom: 5px; /* 제목과 내용 사이 간격 설정 */
@@ -146,3 +181,67 @@ export const NoticeList = styled.div`
         display: none; /* 내용 숨김 */
     }
 `;
+
+export const NoticeButtonEdit = styled.a`
+    margin-left: 15px;
+    background: #6AD37B;
+    border-radius: 3px;
+    color: #FFFFFF;
+    display: inline-block; /* 인라인 요소로 설정하여 텍스트 너비만큼만 차지하도록 변경 */
+    padding: 5px 5px;
+    font-size: 16px; /* 폰트 크기 설정 */
+    margin-top: 480px;
+`
+
+export const NoticeButtonDlelet = styled.button`
+    margin-left: 15px;
+    background: #6AD37B;
+    border-radius: 3px;
+    color: #FFFFFF;
+    display: inline-block; /* 인라인 요소로 설정하여 텍스트 너비만큼만 차지하도록 변경 */
+    padding: 5px 5px;
+    font-size: 16px; /* 폰트 크기 설정 */
+    margin-top: 480px;
+`
+
+export const NoticeButtonEdit2 = styled.button`
+    margin-left: 15px;
+    background: #6AD37B;
+    border-radius: 3px;
+    color: #FFFFFF;
+    display: inline-block; /* 인라인 요소로 설정하여 텍스트 너비만큼만 차지하도록 변경 */
+    padding: 5px 5px;
+    font-size: 16px; /* 폰트 크기 설정 */
+    margin-top: 480px;
+`
+
+export const Noticetitle = styled.strong`
+    font-size: 35px; 
+`
+
+export const NoticeContent = styled.p`
+    white-space: pre-line;
+    margin-top: 50px;
+`
+
+export const EditLink = styled.a`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6AD37B;
+    color: #FFF;
+    width: 70px;
+    height: 40px;
+    border-radius: 4px;
+`
+
+export const DeletdButton = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6AD37B;
+    color: #FFF;
+    width: 70px;
+    height: 40px;
+    border-radius: 4px;
+`

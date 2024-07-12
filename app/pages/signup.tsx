@@ -3,6 +3,7 @@ import axios from "axios";
 import Router from "next/router";
 import * as S from "../stylesheets/signstyle";
 import "../stylesheets/divstyle.css";
+import { apiInstance } from "../apis/api";
 
 function Signup() {
   const [inputValue, setInputValue] = useState("");
@@ -53,14 +54,9 @@ function Signup() {
     };
 
     try {
-      const response = await axios.post(
-        "https://immortal-vervet-humbly.ngrok-free.app/sign-up",
+      const response = await apiInstance.post(
+        "/sign-up",
         dto,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
       );
       if (response.status === 201) {
         window.location.replace("/check");

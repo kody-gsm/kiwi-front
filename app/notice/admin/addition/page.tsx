@@ -1,26 +1,49 @@
 "use client"
 
-import Link from "next/link";
-import * as S from "../../../stylesheets/index";
-import { useState } from "react";
+import Link from 'next/link';
+import * as S from '../../../stylesheets/index';
+import axios, { AxiosInstance } from 'axios';
+import { apiInstanceWithCredential } from '../../../apis/api'
+import { useEffect, useState } from "react";
+
 
 export default function NoticeAdminAddition() {
-    const [notices, setNotices] = useState<{ id: number; title: string; body: string }[]>([]);
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
 
-    const handleNoticeSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const [notices, setNotices] = useState<any[]>([]);
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
+    const [current, setCurrent] = useState<{ title: string, content: string, created_at: string}>();
+    useEffect(() => {
+        const fetchNotices = async () => {
+            const source = await apiInstanceWithCredential.get('/api/notices')
+            setNotices(source.data)
+        }
+
+        fetchNotices()
+    }, [])
+    
+    const handleNoticeSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (title.trim() !== '' && body.trim() !== '') {
+        if (title.trim() !== '' && content.trim() !== '') {
             const newNotice = {
                 id: notices.length + 1,
                 title,
-                body,
+                content,
             };
-
+    
             setNotices([newNotice, ...notices]);
             setTitle('');
-            setBody('');
+            setContent('');
+        }
+        try{
+            const response = await apiInstanceWithCredential.post('/api/notices', {
+                title,
+                content
+            })
+
+            console.log(response.status)
+        }catch (error){
+            console.error(error)
         }
     };
 
@@ -29,13 +52,20 @@ export default function NoticeAdminAddition() {
             <S.NoticeListBackground>
                 <S.NoticeHeader>
                     <S.NoticeListText>공지</S.NoticeListText>
-                    <S.NoticeListA href="./addition/page.tsx">
+                    <S.NoticeListA href="./addition">
                         <S.PlusButton>+</S.PlusButton>
                     </S.NoticeListA>
                 </S.NoticeHeader>
+
                 <S.NoticeBody>
                     {notices.map((notice) => (
-                        <S.NoticeList key={notice.id}>
+                        <S.NoticeList key={notice.id} onClick={() => {
+                            setCurrent({
+                                title: notice.title,
+                                content: notice.content,
+                                created_at: notice.created_at
+                            })
+                        }}>
                             <h3>{notice.title}</h3>
                             {/* 내용을 보이지 않도록 설정 */}
                         </S.NoticeList>
@@ -55,12 +85,12 @@ export default function NoticeAdminAddition() {
                         <br />
                         <S.NoticeBodyInput 
                             placeholder="내용 입력" 
-                            value={body} 
-                            onChange={(e) => setBody(e.target.value)} 
+                            value={content} 
+                            onChange={(e) => setContent(e.target.value)} 
                         /> 
-                        <br /> 
+                        <br />
                         <S.NoticeButtonWrite type="submit">등록</S.NoticeButtonWrite>
-                        <S.NoticeButtonBack href="#">돌아가기</S.NoticeButtonBack>
+                        <S.NoticeButtonBack href="../admin">돌아가기</S.NoticeButtonBack>
                     </S.NoticeForm>
                 </S.NoticeListDetailContainer>
             </S.NoticeListDetail>
