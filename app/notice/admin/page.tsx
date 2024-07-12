@@ -56,7 +56,7 @@ export default function NoticeAdmin() {
                         <S.Noticetitle>{current.title}</S.Noticetitle>
                         <p>{current.created_at}</p> 
                         <S.NoticeContent>{current.content}</S.NoticeContent>
-                        <S.EditLink href="admin/edit">수정하기</S.EditLink>
+      d                  <S.EditLink href="admin/edit">수정하기</S.EditLink>
                         <form>
                             <S.DeletdButton type="submit">삭제하기</S.DeletdButton>
                         </form>

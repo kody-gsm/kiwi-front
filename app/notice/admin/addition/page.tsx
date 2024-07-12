@@ -18,7 +18,7 @@ export default function NoticeAdminAddition() {
             const source = await apiInstanceWithCredential.get('/api/notices')
             setNotices(source.data)
         }
-
+d
         fetchNotices()
     }, [])
     

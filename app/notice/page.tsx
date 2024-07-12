@@ -44,9 +44,9 @@ export default function Notice() {
                         current === undefined ? <div>
                             <S.NoticeListDetailImg src="/x-circle.png" />
                     <S.NoticeListDetailP>공지사항을 선택해주세요.</S.NoticeListDetailP>
-                    </div> : <S.NoticeDetailBack>
+                </div> : <S.NoticeDetailBack>
                         <S.Noticetitle>{current.title}</S.Noticetitle>
-                        <p>{current.created_at}</p> 
+             d           <p>{current.created_at}</p> 
                         <S.NoticeContent>{current.content}</S.NoticeContent>
                         </S.NoticeDetailBack>
                     }
